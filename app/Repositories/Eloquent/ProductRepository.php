@@ -25,7 +25,7 @@ class ProductRepository extends AbstractRepository implements ProductRepositoryI
             ->get();
 
         foreach ($products as $product) {
-            $product->categories->transfrom(function ($item){
+            $product->categories->transform(function ($item){
                 return $item->makeHidden(['pivot']);
             });
         }
@@ -41,10 +41,10 @@ class ProductRepository extends AbstractRepository implements ProductRepositoryI
             ->with($this->categories)
             ->get();
 
-        $product->categories->transfrom(function ($item){
+        $product->categories->transform(function ($item){
             return $item->makeHidden(['pivot']);
         });
-        
+
         return $product->toJson();
     }
 
