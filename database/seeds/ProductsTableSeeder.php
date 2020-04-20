@@ -15,6 +15,6 @@ class ProductsTableSeeder extends Seeder
             $products[] = ['name' => 'Product #' . $i];
         }
 
-        DB::table('categories')->insert($products);
+        DB::table('products')->insert($products);
     }
 }
